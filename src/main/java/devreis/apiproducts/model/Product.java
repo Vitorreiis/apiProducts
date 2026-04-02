@@ -2,6 +2,7 @@ package devreis.apiproducts.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.UUID;
@@ -18,12 +19,15 @@ public class Product {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private UUID id;
 
+    @NotBlank
     @Column(nullable = false)
     private String name;
 
+    @NotBlank
     @Column(nullable = false)
     private int price;
 
+    @NotBlank
     @Column(nullable = false)
     private int  quantity;
 }

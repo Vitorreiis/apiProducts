@@ -43,6 +43,10 @@ public class ProductService {
         return toDTO(product);
     }
 
+    public void deleteById(UUID id) {
+        repository.deleteById(id);
+    }
+
     public ProductDTO toDTO(Product product) {
         return new ProductDTO(
                 product.getId(),

@@ -6,6 +6,8 @@ import devreis.apiproducts.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -33,6 +35,12 @@ public class ProductService {
         return products.stream()
                 .map(this::toDTO)
                 .toList();
+    }
+
+    public ProductDTO findById(UUID id) {
+        Product product = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        return toDTO(product);
     }
 
     public ProductDTO toDTO(Product product) {

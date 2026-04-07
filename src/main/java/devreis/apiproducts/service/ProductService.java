@@ -38,8 +38,17 @@ public class ProductService {
     }
 
     public ProductDTO findById(UUID id) {
-        Product product = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Product product = findEntityProductById(id);
+        return toDTO(product);
+    }
+
+    public ProductDTO updateById(UUID id, ProductDTO request) {
+        Product product = findEntityProductById(id);
+
+        product.setName(request.name());
+        product.setPrice(request.price());
+        product.setQuantity(request.quantity());
+
         return toDTO(product);
     }
 
@@ -54,5 +63,10 @@ public class ProductService {
                 product.getPrice(),
                 product.getQuantity()
         );
+    }
+
+    public Product findEntityProductById(UUID id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
     }
 }

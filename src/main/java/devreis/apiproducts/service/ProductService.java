@@ -4,6 +4,9 @@ import devreis.apiproducts.dto.ProductDTO;
 import devreis.apiproducts.model.Product;
 import devreis.apiproducts.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -23,6 +26,13 @@ public class ProductService {
 
         return toDTO(product);
 
+    }
+
+    public List<ProductDTO> findAll() {
+        List<Product> products = repository.findAll();
+        return products.stream()
+                .map(this::toDTO)
+                .toList();
     }
 
     public ProductDTO toDTO(Product product) {

@@ -3,7 +3,6 @@ package devreis.apiproducts.dto;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.UUID;
-
 public record ProductDTO(
         UUID id,
 

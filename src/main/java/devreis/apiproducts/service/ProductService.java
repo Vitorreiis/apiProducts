@@ -13,6 +13,18 @@ public class ProductService {
         this.repository = repository;
     }
 
+    public ProductDTO createProduct(ProductDTO request) {
+        Product product = new Product();
+
+        product.setId(request.id());
+        product.setName(request.name());
+        product.setPrice(request.price());
+        product.setQuantity(request.quantity());
+
+        return toDTO(product);
+
+    }
+
     public ProductDTO toDTO(Product product) {
         return new ProductDTO(
                 product.getId(),

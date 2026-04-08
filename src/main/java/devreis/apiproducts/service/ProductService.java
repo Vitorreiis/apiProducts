@@ -3,6 +3,7 @@ package devreis.apiproducts.service;
 import devreis.apiproducts.dto.ProductDTO;
 import devreis.apiproducts.model.Product;
 import devreis.apiproducts.repository.ProductRepository;
+import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

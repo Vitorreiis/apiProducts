@@ -27,6 +27,8 @@ public class ProductService {
         product.setPrice(request.price());
         product.setQuantity(request.quantity());
 
+        repository.save(product);
+
         return toDTO(product);
 
     }
@@ -49,6 +51,8 @@ public class ProductService {
         product.setName(request.name());
         product.setPrice(request.price());
         product.setQuantity(request.quantity());
+
+        repository.save(product);
 
         return toDTO(product);
     }

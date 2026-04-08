@@ -3,6 +3,7 @@ package devreis.apiproducts.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.UUID;
@@ -23,11 +24,11 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     private int price;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     private int  quantity;
 }

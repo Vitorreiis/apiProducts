@@ -2,6 +2,7 @@ package devreis.apiproducts.controller;
 
 import devreis.apiproducts.dto.ProductDTO;
 import devreis.apiproducts.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,12 +31,12 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO request){
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody @Valid ProductDTO request){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createProduct(request));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<ProductDTO> updateProductById(@PathVariable UUID id, @RequestBody ProductDTO request){
+    public ResponseEntity<ProductDTO> updateProductById(@PathVariable UUID id, @RequestBody @Valid ProductDTO request){
         return ResponseEntity.ok(service.updateById(id, request));
     }
 

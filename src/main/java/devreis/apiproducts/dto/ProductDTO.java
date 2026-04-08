@@ -1,6 +1,7 @@
 package devreis.apiproducts.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 public record ProductDTO(
@@ -9,9 +10,9 @@ public record ProductDTO(
         @NotBlank(message = "Name is required")
         String name,
 
-        @NotBlank(message = "Price is required")
+        @NotNull(message = "Price is required")
         int price,
 
-        @NotBlank(message = "Quantity is required")
+        @NotNull(message = "Quantity is required")
         int quantity
 ) {}

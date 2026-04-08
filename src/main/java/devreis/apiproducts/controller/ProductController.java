@@ -21,19 +21,21 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getAllProducts(){
-        List<ProductDTO> products = service.findAll();
-        return ResponseEntity.ok(products);
+        return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable UUID id){
-        ProductDTO product = service.findById(id);
-        return ResponseEntity.ok(product);
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO request){
-        ProductDTO product = service.createProduct(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.createProduct(request));
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<ProductDTO> updateProductById(@PathVariable UUID id, @RequestBody ProductDTO request){
+        return ResponseEntity.ok(service.updateById(id, request));
     }
 }

@@ -1,6 +1,7 @@
 package devreis.apiproducts.service;
 
 import devreis.apiproducts.dto.ProductDTO;
+import devreis.apiproducts.exceptions.ProductNotFoundException;
 import devreis.apiproducts.model.Product;
 import devreis.apiproducts.repository.ProductRepository;
 import org.jspecify.annotations.NonNull;
@@ -72,6 +73,6 @@ public class ProductService {
 
     public Product findEntityProductById(UUID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+                .orElseThrow(() -> new ProductNotFoundException("Produto não encontrado"));
     }
 }

@@ -81,7 +81,7 @@
 {
   "name": "Smartphone XYZ",
   "price": 1200.50,
-  "description": "8GB RAM, 128GB Storage"
+  "quantity": 500
 }
 ```
 
